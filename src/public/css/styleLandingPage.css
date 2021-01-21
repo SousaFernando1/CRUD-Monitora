@@ -1,0 +1,46 @@
+.landing-page-header-box{
+    background-color: #F6F0F0;
+    height: 6vh;
+}
+
+.landing-page-container .landing-page-header-box .landing-page-header-buttons {
+
+    margin-left: 75vw;
+}
+
+
+.landing-page-container .landing-page-header-box .landing-page-header-buttons .landing-page-login-button,
+ .landing-page-container .landing-page-header-box .landing-page-header-buttons .landing-page-register-button {
+
+    margin-top: 50px;
+    background: #027373;
+    border: 1px solid #E6E6F0;
+    box-sizing: border-box;
+    border-radius: 8px;
+
+    font-size: 20px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 5px;
+}
+
+.landing-page-container .landing-page-middle-content{
+
+
+    display: flex;
+    height: 94vh;
+
+    background-color: #E14B56;
+
+    padding-top: 150px;
+
+}
+
+.landing-page-container .landing-page-middle-content .landing-page-middle-h2 {
+    
+    color: white;
+    
+    font-size: 60px;
+
+}

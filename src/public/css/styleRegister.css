@@ -1,0 +1,318 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+
+*{
+    margin: 0;
+	padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+:root{
+   font-size: 62.50%; 
+
+    --primary-color: #E14B56;
+    --another-primary-color:#A43131;
+    --secondary-color: #A43131;
+    --background-color: #F6F0F0;
+    --primary-shape: #FFFFFF;
+
+    --text-base: #9D4949;
+    --text-in-input:#ACA8B6;
+    --text-title: #D22C2C;
+    --text-complements:#8C8C8C;
+    --text-base-in-primary-color: #EDA2A2;
+    --text-title-in-primary-color:#FFFFFF;
+}
+#aplicativo{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+
+.arrow-back{
+    position: absolute;
+    top: 16px;
+    left: 100px;
+}
+
+.register-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 60%;
+    height: 100vh;
+    background-color: var(--background-color);
+    
+}
+
+.register-box .content {
+    flex-direction: column;
+    justify-content: center;
+}
+
+.register-box .content .title h1{
+
+    margin-bottom: 2rem;
+
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 3.6rem;
+    line-height: 3.4rem;
+
+    color: var(--text-title);
+}
+
+
+.register-box .content .title p{
+    width: 21.3rem;
+
+
+    margin-bottom: 4rem;
+
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.6rem;
+    line-height: 2.6rem;
+
+    color: var(--text-base);
+    }
+
+.register-box .content .form {
+    width: 80%;
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+.register-box .content .form .input-group {
+    position: relative;
+
+
+    display: flex;
+    flex-direction: column;
+
+}
+.register-box .content .form .input-group input {
+    width: 100%;
+    height: 7.2rem;
+
+    padding-left: 2rem;
+    
+    border: 0.1rem solid var(--background-color);
+    box-sizing: border-box;
+    border-radius: 0.8rem  0.8rem 0rem 0rem;
+
+
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+
+
+    color: var(--text-base);
+
+    background: var(--primary-shape);
+
+
+    outline: 0;
+}
+
+.register-box .content .form .input-group label {
+    position: absolute;
+    left: 2rem;
+    top: 2.5rem;
+
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 2rem;
+    line-height: 2rem;
+
+    color: #ACA8B6;
+
+}
+
+.register-box .content .form button{
+    height: 5.5rem;
+
+    margin-top: 3rem;
+
+    background: #027373;
+    border-radius: 8px;
+
+
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.6rem;
+    line-height: 2.6rem;
+
+    text-align: center;
+
+
+    color: #FFFFFF;
+
+}
+.is-focused{
+    top: 1rem !important;
+    font-size: 1.2rem !important;
+}
+.monitora-box{
+    width: 60%;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    background-color:var(--primary-color);
+    background-size: 70%;
+    background-position: center;
+/*    background-image: url(../img/backgroundRegister.svg); */
+    background-repeat: no-repeat;
+}
+
+
+
+.monitora-box .logo {
+
+    flex-direction: column;
+
+}
+
+
+.monitora-box .logo h2{
+
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 6.4rem;
+    line-height: 2.6rem;
+
+    margin-bottom: 4rem;
+
+    color:var(--text-title-in-primary-color);
+}
+
+.monitora-box .logo p{
+    width: 34rem;
+
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 2.4rem;
+    line-height: 3.4rem;
+
+    letter-spacing: -0.005em;
+
+    color: var(--text-base-in-primary-color);
+}
+
+.form .checkbox{
+    all:unset;
+    height: 32px;
+    width: 32px;
+
+    background: #FFFFFF;
+    border: 2px solid #E6E6F0;
+    box-sizing: border-box;
+    border-radius: 8px;
+    margin-top: 8px;
+}
+
+.form .checkbox-label{
+    font-family: 'Poppins', sans-serif;
+    color: #9C98A6;
+    font-size: 20px;
+    margin-left: 40px;
+    margin-top: -28px;
+}
+
+.form .checkbox:checked{
+    background-image: url("../img/selected.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.input-group{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.eye{
+    background-image: url("../img/olhoaberto.svg"); 
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 24px;
+    width: 24px;
+    position: absolute;
+    right: 15px;
+    top: 20px;
+
+}
+
+.eye-closed{
+    position: absolute;
+    background-image: url("../img/olho.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 24px;
+    width: 24px;
+    right: 15px;
+    top: 20px;
+}
+
+
+@media screen 
+    and (device-width : 375px) 
+    and (device-height : 812px) 
+    and (-webkit-device-pixel-ratio : 3){
+
+        #aplicativo{
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        .register-box{
+            width: 100vw;
+
+        }
+
+        .register-box .content .title{
+            margin-top: 10px;
+        }
+        .monitora-box{
+            width: 100vw;
+        }
+        .logo{
+            margin: 0;
+        }
+
+        .monitora-box .logo h2{
+            font-size: 4rem;
+        }
+
+        .register-box .content{
+            margin-left: 50px;
+        }
+
+        .form .input-group{
+            width: 280px;
+        }
+        .arrow-back{
+            display: none;
+        }
+    }
+    
