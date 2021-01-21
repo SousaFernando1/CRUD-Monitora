@@ -1,9 +1,12 @@
 import '../public/css/styleRegister.css'
 import React,{ useState } from 'react';
 import axios from 'axios';
+import { useHistory } from "react-router-dom";
 
 function RegisterForm() {
     
+    const history = useHistory()
+
     const [campos, setCampos] = useState({
         iFirstName: '',
         iLastName: '',
@@ -18,7 +21,9 @@ function RegisterForm() {
 
     function handleFormSubmit(event){
         event.preventDefault();
-        axios.post('http://localhost:3031/cadastro', campos)
+        axios.post('http://localhost:3031/cadastro', campos).then(response => {
+            history.push('/perfil')
+        })
 }
     return (
     <div id="aplicativo">

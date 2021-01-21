@@ -23,7 +23,7 @@ app.post('/cadastro', async (req, res, next) => {
       [iFirstName, iLastName, iEmail, iPassword]
     ).then(
         res.status(201).send({
-            message: "Product added successfully!",
+            message: "Perfil criado com sucesso!",
             body: {
               users: { iFirstName , iLastName , iEmail, iPassword }
             }

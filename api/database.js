@@ -5,12 +5,11 @@ dotenv.config();
 
 // ==> Conexão com a Base de Dados:
 
-console.log(process.env)
+/* console.log(process.env) */
 
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL
- 
- /*  connectionString: "postgres://fernando:sousa@localhost:5432/projetoreact" */
+  /*connectionString: process.env.DATABASE_URL*/
+  connectionString: "postgres://fernando:sousa@localhost:5432/projetoreact" 
 
 });
 
