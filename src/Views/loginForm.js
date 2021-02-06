@@ -1,7 +1,7 @@
 
 import '../public/css/styleLogin.css';
 
-function loginForm() {
+function LoginForm() {
     
     return (
         <div className="container">
@@ -16,18 +16,18 @@ function loginForm() {
                     <h2 className="second-title">Fazer Login</h2>
                     <form className="login">
                         <div className="input-group">
-                            <label for="iemail">E-mail</label>
+                            <label htmlFor="iemail">E-mail</label>
                             <input type="email" name="name" id="iemail" />
                         </div>
                         <div className="input-group">
-                            <label for="ipassword">Senha</label>
+                            <label htmlFor="ipassword">Senha</label>
                             <input type="password" name="password" id="ipassword" />
                             <span className="show-password eye-closed"></span>
                         </div>
                         <div className="options">
                             <div className="input-checkbox">
                                 <input type="checkbox" name="remember" id="checkbox" checked />
-                                <label for="checkbox" className="checkbox">Lembrar-me</label>
+                                <label htmlFor="checkbox" className="checkbox">Lembrar-me</label>
                             </div>
                             <a href="recuperarsenha" className="forgot">Esqueci minha senha</a>
                         </div>
@@ -44,4 +44,4 @@ function loginForm() {
     )
 }
 
-export default loginForm;
+export default LoginForm;

@@ -12,10 +12,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.get('/', (req, res, next) => {
-    res.json({message: "Tudo ok por aqui!", dados: cadastros});
+    res.json({message: "Tudo ok por aqui!"});
 })
 
-const cadastros = [];
 app.post('/cadastro', async (req, res, next) => { 
     const { iFirstName , iLastName , iEmail, iPassword} = req.body;
     await db.query(

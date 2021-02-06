@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import '../public/css/styleLandingPage.css'
 import logo from '../public/img/logo.svg';
 
-function landingPage() {
+function LandingPage() {
 
     return(
         <div className="landing-page-container">
@@ -20,4 +20,4 @@ function landingPage() {
 
 
 )}
-export default landingPage
+export default LandingPage
