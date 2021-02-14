@@ -26,8 +26,8 @@ function RegisterForm() {
         console.log(campos)
     }
 
-    let usernameValue = sessionStorage.getItem('myData')
-    usernameValue = JSON.parse(usernameValue)
+    // let usernameValue = sessionStorage.getItem('myData')
+    // usernameValue = JSON.parse(usernameValue)
 
 
     function handleFormSubmit(event){
@@ -42,12 +42,10 @@ function RegisterForm() {
             console.log(newUsername)  */
             history.push('/perfil')
         })
-
-        
-
-
-
 }
+
+
+
     return (
     <div id="aplicativo">
     <div className="register-box">

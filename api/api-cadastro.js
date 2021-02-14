@@ -15,22 +15,73 @@ app.get('/', (req, res, next) => {
     res.json({message: "Tudo ok por aqui!"});
 })
 
-app.post('/cadastro', async (req, res, next) => { 
-    const { iFirstName , iLastName , iEmail, iPassword} = req.body;
+
+
+
+
+
+
+// app.post('/perfil', async (req, res, next) => { 
+//     const { iFirstName , iLastName , iEmail, iPassword} = req.body;
+//     await db.query(
+//       "INSERT INTO users (name, lastname, email, password) VALUES ($1, $2, $3, $4);",
+//       [iFirstName, iLastName, iEmail, iPassword]
+//     ).then(
+//         res.status(201).send({
+//             message: "Perfil criado com sucesso!",
+//             body: {
+//               users: { iFirstName , iLastName , iEmail, iPassword }
+//             }
+//         })).catch((error) => {
+//         console.log(error)
+//     })
+// })
+
+
+//////////////////////////
+
+
+
+ app.post('/perfil', async (req, res, next) => { 
+    console.log(req.body)
+    const { iEmail, email} = req.body;
     await db.query(
-      "INSERT INTO users (name, lastname, email, password) VALUES ($1, $2, $3, $4);",
-      [iFirstName, iLastName, iEmail, iPassword]
+        
+      "UPDATE users SET email = ($1) where email = ($2);",
+      [iEmail, email]
     ).then(
         res.status(201).send({
-            message: "Perfil criado com sucesso!",
+            message: "Perfil alterado com sucesso!",
             body: {
-              users: { iFirstName , iLastName , iEmail, iPassword }
+              users: {email, iEmail} 
             }
         })).catch((error) => {
         console.log(error)
     })
 
+}) 
 
+
+
+
+
+
+    app.post('/cadastro', async (req, res, next) => { 
+        const { iFirstName , iLastName , iEmail, iPassword} = req.body;
+        await db.query(
+          "INSERT INTO users (name, lastname, email, password) VALUES ($1, $2, $3, $4);",
+          [iFirstName, iLastName, iEmail, iPassword]
+        ).then(
+            res.status(201).send({
+                message: "Perfil criado com sucesso!",
+                body: {
+                  users: { iFirstName , iLastName , iEmail, iPassword }
+                }
+            })).catch((error) => {
+            console.log(error)
+        })
+    
+    
 
 /*   console.log("Cadastro recebido!");
 
