@@ -61,7 +61,6 @@ app.post('/perfil', async (req, res, next) => {
 
 }) 
 
-
 app.post('/update', async (req, res, next) => { 
     console.log(req.body)
     const { iEmail, email} = req.body;
