@@ -1,10 +1,10 @@
 import React from 'react';
 import {Route, BrowserRouter} from 'react-router-dom';
 
-import landingPage from './Views/landingPage';
-import loginForm from './Views/loginForm';
-import registerForm from './Views/registerForm';
-import profile from './Views/profile';
+import landingPage from './Pages/landingPage';
+import loginForm from './Pages/loginForm';
+import registerForm from './Pages/registerForm';
+import profile from './Pages/profile';
 
 
 

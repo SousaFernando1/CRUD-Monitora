@@ -18,7 +18,7 @@ app.get('/', (req, res, next) => {
 app.post('/cadastro', async (req, res, next) => { 
     const { iFirstName , iLastName , iEmail, iPassword} = req.body;
     await db.query(
-      "INSERT INTO users (firstname, lastname, email, password) VALUES ($1, $2, $3, $4);",
+      "INSERT INTO users (name, lastname, email, password) VALUES ($1, $2, $3, $4);",
       [iFirstName, iLastName, iEmail, iPassword]
     ).then(
         res.status(201).send({

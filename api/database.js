@@ -9,7 +9,7 @@ dotenv.config();
 
 const pool = new Pool({
   /*connectionString: process.env.DATABASE_URL*/
-  connectionString: "postgres://fernando:sousa@localhost:5432/projetoreact" 
+  connectionString: "postgres://fernando:sousa@localhost:5432/projetoreact"
 
 });
 
