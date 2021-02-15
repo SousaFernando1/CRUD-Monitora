@@ -1,0 +1,10 @@
+.update-email .form .input-group #updateEmail{
+    width: 300px;
+    height: 50px;
+    border: 1px solid blueviolet;
+}
+.update-email .form .input-group button{
+    width: 300px;
+    height: 50px;
+    background-color: cornflowerblue;
+}

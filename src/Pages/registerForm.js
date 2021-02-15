@@ -20,6 +20,8 @@ function RegisterForm() {
     });
 
 
+    console.log(campos, 'Campos registerForm')
+
     function handleInputChange(event){
         campos[event.target.name] = event.target.value;
         setCampos(campos);
@@ -35,6 +37,7 @@ function RegisterForm() {
         axios.post('http://localhost:3031/cadastro', campos).then(response => {
             console.log(response.data.body.users)
 
+            
             let usernameNew = response.data.body.users;
             sessionStorage.setItem('myData', JSON.stringify(usernameNew))
 /*             let newUsername = sessionStorage.getItem('myData')

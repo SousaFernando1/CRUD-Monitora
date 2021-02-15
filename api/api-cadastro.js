@@ -19,69 +19,71 @@ app.get('/', (req, res, next) => {
 
 
 
-
-
-// app.post('/perfil', async (req, res, next) => { 
-//     const { iFirstName , iLastName , iEmail, iPassword} = req.body;
-//     await db.query(
-//       "INSERT INTO users (name, lastname, email, password) VALUES ($1, $2, $3, $4);",
-//       [iFirstName, iLastName, iEmail, iPassword]
-//     ).then(
-//         res.status(201).send({
-//             message: "Perfil criado com sucesso!",
-//             body: {
-//               users: { iFirstName , iLastName , iEmail, iPassword }
-//             }
-//         })).catch((error) => {
-//         console.log(error)
-//     })
-// })
-
-
 //////////////////////////
 
 
 
+// app.post('/perfil', async (req, res, next) => { 
+//     console.log(req.body)
+//     const { iEmail, email} = req.body;
+//     await db.query(
+        
+//       "UPDATE users SET email = ($1) where email = ($2);",
+//       [iEmail, email]
+//     ).then(
+//         res.status(201).send({
+//             message: "Perfil alterado com sucesso!",
+//             body: {
+//               users: {email, iEmail} 
+//             }
+//         })).catch((error) => {
+//         console.log(error)
+//     })
+
+// }) 
+
 app.post('/perfil', async (req, res, next) => { 
     console.log(req.body)
-    const { iEmail, email} = req.body;
-    await db.query(
-        
-      "UPDATE users SET email = ($1) where email = ($2);",
-      [iEmail, email]
-    ).then(
-        res.status(201).send({
-            message: "Perfil alterado com sucesso!",
-            body: {
-              users: {email, iEmail} 
-            }
-        })).catch((error) => {
-        console.log(error)
-    })
-
-}) 
-
-app.post('/update', async (req, res, next) => { 
-    console.log(req.body)
-    const { iEmail, email} = req.body;
 
     const resposta = await db.query(
         
-      "SELECT email FROM users WHERE id = 20;"
+      "SELECT name FROM users WHERE id_user = 58;"
     ).then(
         res.status(201).send({
             message: "Perfil alterado com sucesso!",
             body: {
-              users: {email, iEmail} 
+              users: { } 
             },
             
         })).catch((error) => {
         console.log(error)
     })
-    console.log(resposta.rows)
+    console.log(resposta.rows[0].name)
 })
 
 
+
+
+
+
+app.post('/updateemail', async (req, res, next) => { 
+  console.log(req.body)
+ const { registerEmail, iEmail } = req.body;
+
+ await db.query(     
+    "UPDATE users SET email = ($1) where email = ($2);",
+    [iEmail, registerEmail]
+ ).then(
+     res.status(201).send({
+         message: "Perfil alterado com sucesso!",
+         body: {
+           users: { registerEmail, iEmail } 
+         },
+         
+     })).catch((error) => {
+     console.log(error)
+ })
+})
 
 
 

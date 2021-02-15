@@ -5,6 +5,7 @@ import landingPage from './Pages/landingPage';
 import loginForm from './Pages/loginForm';
 import registerForm from './Pages/registerForm';
 import profile from './Pages/profile';
+import updateEmail from './Pages/updateEmail';
 
 
 
@@ -15,6 +16,7 @@ function Routes(){
             <Route component={loginForm} path="/login" />
             <Route component={registerForm} path="/cadastro" />
             <Route component={profile} path="/perfil" />
+            <Route component={updateEmail} path="/updateemail" />
         </BrowserRouter>
     )
 }
