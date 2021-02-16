@@ -64,8 +64,6 @@ app.post('/perfil', async (req, res, next) => {
 
 
 
-
-
 app.post('/updateemail', async (req, res, next) => { 
   console.log(req.body)
  const { registerEmail, iEmail } = req.body;
@@ -130,6 +128,45 @@ console.log(iWhatsapp, email, oldCellphone)
 
 
 
+app.post('/login', async (req, res, next) => { 
+  console.log(req.body)
+ const { iPassword, iEmail } = req.body;
+ console.log(iPassword,iEmail)
+
+// const emailUsuario = await db.query(
+//   "SELECT id_user FROM users WHERE email =($1);",
+//   [email]
+// )
+
+// // const idDoUsuario = idUsuario.rows[0].id_user
+
+// console.log(idUsuario.rows[0].email)
+
+const dadosUsuario = await db.query(
+  "SELECT email, password, name, lastname, whatsapp, biography FROM users WHERE email = ($1) AND password = ($2)",
+  [iEmail, iPassword]
+)
+
+if(dadosUsuario !== '')
+{
+
+  const iFirstName = dadosUsuario.rows[0].name
+  const iLastName = dadosUsuario.rows[0].lastname
+  const iEmail = dadosUsuario.rows[0].email
+  const iPassword = dadosUsuario.rows[0].password
+  const iWhatsapp = dadosUsuario.rows[0].whatsapp
+  const iBiography = dadosUsuario.rows[0].biography
+
+   res.status(201).send({
+              message: "Perfil alterado com sucesso!",
+              body: {
+                users: { iFirstName, iLastName, iEmail, iPassword, iWhatsapp, iBiography } 
+              }
+
+})
+
+}
+ })
 
 
     app.post('/cadastro', async (req, res, next) => { 
@@ -168,19 +205,6 @@ console.log(iWhatsapp, email, oldCellphone)
 
 
     
-
-/*   console.log("Cadastro recebido!");
-
-
-
-    //salva no banco de dados
-    cadastros.push({
-        Nome: req.body.iFirstName, 
-        Sobrenome: req.body.iLastName, 
-        Email: req.body.iEmail, 
-        Password: req.body.iPassword
-    });
-    res.json({message: "Tudo ok por aqui!", dados: cadastros}); */
 }) 
 
 var server = http.createServer(app); 

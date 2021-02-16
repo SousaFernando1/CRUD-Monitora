@@ -84,7 +84,7 @@ function RegisterForm() {
                 </div>
                 <div className="input-group">
                     <label htmlFor="iEmail">E-mail</label>
-                    <input type="text" name="iEmail" id="iEmail" onChange={handleInputChange}/>
+                    <input type="email" name="iEmail" id="iEmail" onChange={handleInputChange}/>
                 </div>
                 <div className="input-group">
                     <label htmlFor="iPassword">Senha</label>
