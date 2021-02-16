@@ -19,9 +19,20 @@ function Profile(){
     let newLastname = sessionStorage.getItem('newLastname')
     newLastname = JSON.parse(newLastname)
 
+    let newBiography = sessionStorage.getItem('newBiography')
+    newBiography = JSON.parse(newBiography)
+    console.log('newBiography AQUI:', newBiography)
+
+
     let profileValue = sessionStorage.getItem('myData')
     profileValue = JSON.parse(profileValue)
 
+    
+
+    if(newBiography !== null){
+        console.log('Chegou no if', newBiography)
+        profileValue.iBiography = newBiography
+    }
 
     if(newLastname !== null){
         console.log('Chegou no if profile', newLastname)
@@ -48,7 +59,8 @@ function Profile(){
         lastname: profileValue.iLastName,
         email: profileValue.iEmail,
         password: profileValue.iPassword,
-        whatsapp: profileValue.iWhatsapp
+        whatsapp: profileValue.iWhatsapp,
+        biography: profileValue.iBiography
     });
 
 
@@ -100,7 +112,7 @@ function Profile(){
                     </div>
                     <div className="profile-input-group">
                         <label htmlFor="iBiography">Biografia</label> 
-                        <textarea type="text" name="iBiography" id="iBiography" onChange={handleInputChange}></textarea>
+                        <textarea type="text" name="iBiography" id="iBiography" onChange={handleInputChange} value={ campos.biography }></textarea>
                         <Link className="profile-update-button" to="/updatebiography">Alterar</Link>
                     </div>
 

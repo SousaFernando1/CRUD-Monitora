@@ -138,6 +138,27 @@ await db.query(
 
 })
 
+app.post('/updatebiography', async (req, res, next) => { 
+  console.log(req.body)
+ const { email, iBiography, oldBiography } = req.body;
+ console.log( email, iBiography, oldBiography )
+
+await db.query(
+  "UPDATE users SET biography = ($1) WHERE email = ($2);",
+  [iBiography, email]
+).then(
+       res.status(201).send({
+           message: "Perfil alterado com sucesso!",
+           body: {
+             users: { email, iBiography, oldBiography }
+           },
+           
+       })).catch((error) => {
+       console.log(error)
+   })
+
+})
+
 
 
 
@@ -212,7 +233,7 @@ if(dadosUsuario !== '')
 
 
     app.post('/cadastro', async (req, res, next) => { 
-        const { iFirstName , iLastName , iEmail, iPassword, iWhatsapp} = req.body;
+        const { iFirstName , iLastName , iEmail, iPassword, iWhatsapp, iBiography} = req.body;
 
         const verifyEmail = await db.query(
           'SELECT * FROM users WHERE email = ($1)',
@@ -224,13 +245,13 @@ if(dadosUsuario !== '')
 
         if(constVerifyEmail == '') {
         await db.query(
-          "INSERT INTO users (name, lastname, email, password, whatsapp) VALUES ($1, $2, $3, $4, $5);",
-          [iFirstName, iLastName, iEmail, iPassword, iWhatsapp]
+          "INSERT INTO users (name, lastname, email, password, whatsapp, biography) VALUES ($1, $2, $3, $4, $5, $6);",
+          [iFirstName, iLastName, iEmail, iPassword, iWhatsapp, iBiography]
         ).then(
             res.status(201).send({
                 message: "Perfil criado com sucesso!",
                 body: {
-                  users: { iFirstName , iLastName , iEmail, iPassword, iWhatsapp }
+                  users: { iFirstName , iLastName , iEmail, iPassword, iWhatsapp, iBiography }
                 }
             })).catch((error) => {
             console.log(error)

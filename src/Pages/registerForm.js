@@ -11,6 +11,7 @@ function RegisterForm() {
     sessionStorage.removeItem('newCellphone')
     sessionStorage.removeItem('newName')
     sessionStorage.removeItem('newLastname')
+    sessionStorage.removeItem('newBiography')
     
 
     const history = useHistory()
@@ -21,6 +22,7 @@ function RegisterForm() {
         iEmail: '',
         iPassword: '',
         iWhatsapp: 'Sem número',
+        iBiography: 'Sem biografia'
     });
 
 

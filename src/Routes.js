@@ -9,6 +9,7 @@ import updateEmail from './Pages/updateEmail';
 import updateCellphone from './Pages/updateCellphone';
 import updateName from './Pages/updateName';
 import updateLastname from './Pages/updateLastname';
+import updateBiography from './Pages/updateBiography';
 
 
 
@@ -23,6 +24,7 @@ function Routes(){
             <Route component={updateCellphone} path="/updatecellphone" />
             <Route component={updateName} path="/updatename" />
             <Route component={updateLastname} path="/updatelastname" />
+            <Route component={updateBiography} path="/updatebiography" />
         </BrowserRouter>
     )
 }
