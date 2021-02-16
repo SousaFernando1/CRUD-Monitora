@@ -8,7 +8,10 @@ function RegisterForm() {
 
    /*  console.trace(usernameValue) */
 
-
+    sessionStorage.removeItem('newCellphone')
+    const dadosD = sessionStorage.getItem('newCellphone')
+    console.log('dadosD:', dadosD)
+    
 
     const history = useHistory()
 
@@ -16,7 +19,8 @@ function RegisterForm() {
         iFirstName: '',
         iLastName: '',
         iEmail: '',
-        iPassword: ''
+        iPassword: '',
+        iWhatsapp: 'Sem número',
     });
 
 

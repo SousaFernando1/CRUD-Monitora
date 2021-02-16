@@ -7,11 +7,12 @@ import { Link } from "react-router-dom";
 function Profile(){
 
 
+    let newCellphone = sessionStorage.getItem('newCellphone')
+    newCellphone = JSON.parse(newCellphone)
 
     let emailValue = sessionStorage.getItem('newEmail')
     emailValue = JSON.parse(emailValue)
 
-    console.log('EmailValue = ', emailValue)
 
     let profileValue = sessionStorage.getItem('myData')
     profileValue = JSON.parse(profileValue)
@@ -21,6 +22,10 @@ function Profile(){
         profileValue.iEmail = emailValue
     }
 
+    if(newCellphone !== null){
+        console.log('Chegou no if', newCellphone)
+        profileValue.iWhatsapp = newCellphone
+    }
 
     
 
@@ -28,7 +33,8 @@ function Profile(){
         firstname: profileValue.iFirstName,
         lastname: profileValue.iLastName,
         email: profileValue.iEmail,
-        password: profileValue.iPassword
+        password: profileValue.iPassword,
+        whatsapp: profileValue.iWhatsapp
     });
 
 
@@ -70,13 +76,13 @@ function Profile(){
                     </div>
                     <div className="profile-input-group">
                         <label htmlFor="iEmail">Email</label>
-                        <input type="text" name="iEmail" id="iEmail" onChange={handleInputChange} value={ campos.email}/>
+                        <input type="text" name="iEmail" id="iEmail" onChange={handleInputChange} value={ campos.email }/>
                         <Link className="profile-update-button" to="/updateemail">Alterar</Link>
                     </div>
                     <div className="profile-input-group">
                         <label htmlFor="iWhatsapp">Whatsapp</label>
-                        <input type="text" name="iWhatsapp" id="iWhatsapp" onChange={handleInputChange}/>
-                        <Link className="profile-update-button" to="/updatewhatsapp">Alterar</Link>
+                        <input type="text" name="iWhatsapp" id="iWhatsapp" onChange={handleInputChange} value={ campos.whatsapp }/>
+                        <Link className="profile-update-button" to="/updatecellphone">Alterar</Link>
                     </div>
                     <div className="profile-input-group">
                         <label htmlFor="iBiography">Biografia</label> 

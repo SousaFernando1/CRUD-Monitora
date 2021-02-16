@@ -96,10 +96,44 @@ await db.query(
 
 
 
+app.post('/updatecellphone', async (req, res, next) => { 
+  console.log(req.body)
+ const { oldCellphone, iWhatsapp, email } = req.body;
+
+// const emailUsuario = await db.query(
+//   "SELECT id_user FROM users WHERE email =($1);",
+//   [email]
+// )
+
+// // const idDoUsuario = idUsuario.rows[0].id_user
+
+// console.log(idUsuario.rows[0].email)
+
+
+
+await db.query(     
+    "UPDATE users SET whatsapp = ($1) where email = ($2);",
+    [iWhatsapp, email]
+ ).then(
+     res.status(201).send({
+         message: "Perfil alterado com sucesso!",
+         body: {
+           users: { iWhatsapp, oldCellphone, email } 
+         },
+         
+     })).catch((error) => {
+     console.log(error)
+ })
+
+console.log(iWhatsapp, email, oldCellphone)
+})
+
+
+
 
 
     app.post('/cadastro', async (req, res, next) => { 
-        const { iFirstName , iLastName , iEmail, iPassword} = req.body;
+        const { iFirstName , iLastName , iEmail, iPassword, iWhatsapp} = req.body;
 
         const verifyEmail = await db.query(
           'SELECT * FROM users WHERE email = ($1)',
@@ -111,13 +145,13 @@ await db.query(
 
         if(constVerifyEmail == '') {
         await db.query(
-          "INSERT INTO users (name, lastname, email, password) VALUES ($1, $2, $3, $4);",
-          [iFirstName, iLastName, iEmail, iPassword]
+          "INSERT INTO users (name, lastname, email, password, whatsapp) VALUES ($1, $2, $3, $4, $5);",
+          [iFirstName, iLastName, iEmail, iPassword, iWhatsapp]
         ).then(
             res.status(201).send({
                 message: "Perfil criado com sucesso!",
                 body: {
-                  users: { iFirstName , iLastName , iEmail, iPassword }
+                  users: { iFirstName , iLastName , iEmail, iPassword, iWhatsapp }
                 }
             })).catch((error) => {
             console.log(error)
@@ -127,7 +161,12 @@ await db.query(
           message: "Falha!",
       })
     }
-    
+  
+
+
+
+
+
     
 
 /*   console.log("Cadastro recebido!");
