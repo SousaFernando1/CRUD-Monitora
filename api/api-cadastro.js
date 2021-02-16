@@ -70,9 +70,16 @@ app.post('/updateemail', async (req, res, next) => {
   console.log(req.body)
  const { registerEmail, iEmail } = req.body;
 
- await db.query(     
-    "UPDATE users SET email = ($1) where email = ($2);",
-    [iEmail, registerEmail]
+const idUsuario = await db.query(
+  "SELECT id_user FROM users WHERE email =($1);",
+  [registerEmail]
+)
+
+const idDoUsuario = idUsuario.rows[0].id_user
+
+await db.query(     
+    "UPDATE users SET email = ($1) where id_user = ($2);",
+    [iEmail, idDoUsuario]
  ).then(
      res.status(201).send({
          message: "Perfil alterado com sucesso!",
@@ -83,6 +90,8 @@ app.post('/updateemail', async (req, res, next) => {
      })).catch((error) => {
      console.log(error)
  })
+
+
 })
 
 
@@ -91,6 +100,16 @@ app.post('/updateemail', async (req, res, next) => {
 
     app.post('/cadastro', async (req, res, next) => { 
         const { iFirstName , iLastName , iEmail, iPassword} = req.body;
+
+        const verifyEmail = await db.query(
+          'SELECT * FROM users WHERE email = ($1)',
+          [iEmail]
+        )
+
+        const constVerifyEmail = verifyEmail.rows
+
+
+        if(constVerifyEmail == '') {
         await db.query(
           "INSERT INTO users (name, lastname, email, password) VALUES ($1, $2, $3, $4);",
           [iFirstName, iLastName, iEmail, iPassword]
@@ -103,6 +122,11 @@ app.post('/updateemail', async (req, res, next) => {
             })).catch((error) => {
             console.log(error)
         })
+      } else {
+        res.status(201).send({
+          message: "Falha!",
+      })
+    }
     
     
 

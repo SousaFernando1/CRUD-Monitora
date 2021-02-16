@@ -35,15 +35,25 @@ function RegisterForm() {
     function handleFormSubmit(event){
         event.preventDefault();
         axios.post('http://localhost:3031/cadastro', campos).then(response => {
-            console.log(response.data.body.users)
 
-            
-            let usernameNew = response.data.body.users;
-            sessionStorage.setItem('myData', JSON.stringify(usernameNew))
-/*             let newUsername = sessionStorage.getItem('myData')
-            newUsername = JSON.parse(newUsername)
-            console.log(newUsername)  */
-            history.push('/perfil')
+            if(response.data.message === 'Falha!')
+            {
+                alert('Usuário já cadastrado')
+
+            } else {
+                console.log(response.data.body.users)    
+
+
+                let usernameNew = response.data.body.users;
+                sessionStorage.setItem('myData', JSON.stringify(usernameNew))
+    /*             let newUsername = sessionStorage.getItem('myData')
+                newUsername = JSON.parse(newUsername)
+                console.log(newUsername)  */
+                history.push('/perfil')
+            }
+
+
+
         })
 }
 

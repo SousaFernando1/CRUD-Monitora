@@ -17,7 +17,7 @@ function UpdateEmail() {
 
     let emailValue = sessionStorage.getItem('newEmail')
     emailValue = JSON.parse(emailValue)
-    
+
     if(emailValue !== null){
         console.log('Chegou no if', emailValue)
         profileValue.iEmail = emailValue
@@ -47,7 +47,7 @@ function UpdateEmail() {
         
             let newEmail = response.data.body.users;
             sessionStorage.setItem('newEmail', JSON.stringify(newEmail.iEmail))
-            console.log('newEmail', newEmail)
+            // console.log('newEmail', newEmail)
 
             history.push('/perfil')
         })
