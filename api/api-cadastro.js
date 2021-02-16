@@ -159,6 +159,27 @@ await db.query(
 
 })
 
+app.post('/deletar', async (req, res, next) => { 
+  console.log(req.body)
+ const { email } = req.body;
+ console.log( email )
+
+await db.query(
+  "delete from users where email = ($1)",
+  [ email ]
+).then(
+       res.status(201).send({
+           message: "Perfil excluído com sucesso!",
+           body: {
+             users: { email }
+           },
+           
+       })).catch((error) => {
+       console.log(error)
+   })
+
+})
+
 
 
 

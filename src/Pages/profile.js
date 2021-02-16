@@ -2,10 +2,12 @@ import '../public/css/profile.css';
 import attention from '../public/img/attention.svg';
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 function Profile(){
 
+
+    const history = useHistory()
 
     let newCellphone = sessionStorage.getItem('newCellphone')
     newCellphone = JSON.parse(newCellphone)
@@ -73,8 +75,12 @@ function Profile(){
 
     function handleFormSubmit(event){
         event.preventDefault();
-        axios.post('http://localhost:3031/perfil', campos).then(response => {
+        axios.post('http://localhost:3031/deletar', campos).then(response => {
+
          console.log(response.data.body.users)
+         history.push('/')
+
+         alert('Voce apagou sua conta!')
 
         })
 }
@@ -115,8 +121,6 @@ function Profile(){
                         <textarea type="text" name="iBiography" id="iBiography" onChange={handleInputChange} value={ campos.biography }></textarea>
                         <Link className="profile-update-button" to="/updatebiography">Alterar</Link>
                     </div>
-
-                    {/* <button type="submit">Salvar cadastro</button> */}
                 </form>
 
                 
@@ -130,6 +134,10 @@ function Profile(){
                             <p>Preencha todos os dados corretamente</p>
                             </div>
                         </div>
+                        <form onSubmit={handleFormSubmit}>
+                        <button type="submit">excluir cadastro</button>
+                        </form>
+                        {/* <Link className="button" to="/delete">Deletar conta</Link> */}
                     </footer>
         </div>
     </div>

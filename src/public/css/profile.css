@@ -100,7 +100,7 @@
     
 }
 
-.footer-box form{
+.footer-box .form{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 }
@@ -139,10 +139,7 @@
     margin-left: 10px;
 }
 
-.footer-box form button {
-
-    margin-top: 80px;
-    margin-left: 50px;
+.footer-box footer button {
 
     width: 197px;
     height: 56px;
@@ -151,8 +148,22 @@
 
     font-family: 'Archivo', sans-serif;
     color: #FFFFFF;
-    background: #027373;
+    background: red;
     border-radius: 8px;
-    margin-right: 30px;
+    /* margin-right: 30px; */
+    color:white;
+
+
+    font-size: 16px;
+    text-decoration: none;
+    text-align: center;
+
+
 }
+/* 
+#app .footer-box footer  .form-button{
+    display: none;
+} */
+
+
 
