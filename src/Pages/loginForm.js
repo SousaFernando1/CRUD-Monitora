@@ -26,15 +26,18 @@ function LoginForm() {
     function handleFormSubmit(event){
         event.preventDefault();
         axios.post('http://localhost:3031/login', campos).then(response => {
+        console.log('Mensagem do servidor:',response.data.message)
 
+            if(response.data.message === 'Falha!')
+            {
+                alert('Este usuário não existe')
+
+            } else {
                 console.log(response.data.body.users)    
                 let usernameNew = response.data.body.users;
                 sessionStorage.setItem('myData', JSON.stringify(usernameNew))
                  history.push('/perfil')
-            
-
-
-
+            }
         })
 }
 

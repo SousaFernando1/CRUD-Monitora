@@ -210,7 +210,9 @@ const dadosUsuario = await db.query(
   [iEmail, iPassword]
 )
 
-if(dadosUsuario !== '')
+console.log('Dados',dadosUsuario.rows)
+
+if(dadosUsuario.rows.length !== 0)
 {
 
   const iFirstName = dadosUsuario.rows[0].name
@@ -228,8 +230,15 @@ if(dadosUsuario !== '')
 
 })
 
+} else {
+  res.status(201).send({
+    message: "Falha!",
+
+})
 }
- })
+ 
+
+})
 
 
     app.post('/cadastro', async (req, res, next) => { 
