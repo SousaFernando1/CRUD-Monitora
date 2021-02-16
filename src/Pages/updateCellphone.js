@@ -46,7 +46,6 @@ function UpdateEmail() {
         
             let newCellphone = response.data.body.users;
             sessionStorage.setItem('newCellphone', JSON.stringify(newCellphone.iWhatsapp))
-            // console.log('newEmail', newEmail)
 
             history.push('/perfil')
         })

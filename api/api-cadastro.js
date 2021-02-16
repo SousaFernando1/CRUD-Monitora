@@ -23,25 +23,6 @@ app.get('/', (req, res, next) => {
 
 
 
-// app.post('/perfil', async (req, res, next) => { 
-//     console.log(req.body)
-//     const { iEmail, email} = req.body;
-//     await db.query(
-        
-//       "UPDATE users SET email = ($1) where email = ($2);",
-//       [iEmail, email]
-//     ).then(
-//         res.status(201).send({
-//             message: "Perfil alterado com sucesso!",
-//             body: {
-//               users: {email, iEmail} 
-//             }
-//         })).catch((error) => {
-//         console.log(error)
-//     })
-
-// }) 
-
 app.post('/perfil', async (req, res, next) => { 
     console.log(req.body)
 
@@ -89,9 +70,6 @@ await db.query(
      console.log(error)
  })
 })
-
-
-
 
 
 
@@ -183,12 +161,6 @@ await db.query(
 
 
 
-
-
-
-
-
-
 app.post('/updatecellphone', async (req, res, next) => { 
   console.log(req.body)
  const { oldCellphone, iWhatsapp, email } = req.body;
@@ -217,14 +189,6 @@ app.post('/login', async (req, res, next) => {
  const { iPassword, iEmail } = req.body;
  console.log(iPassword,iEmail)
 
-// const emailUsuario = await db.query(
-//   "SELECT id_user FROM users WHERE email =($1);",
-//   [email]
-// )
-
-// // const idDoUsuario = idUsuario.rows[0].id_user
-
-// console.log(idUsuario.rows[0].email)
 
 const dadosUsuario = await db.query(
   "SELECT email, password, name, lastname, whatsapp, biography FROM users WHERE email = ($1) AND password = ($2)",
@@ -248,7 +212,6 @@ if(dadosUsuario.rows.length !== 0)
               body: {
                 users: { iFirstName, iLastName, iEmail, iPassword, iWhatsapp, iBiography } 
               }
-
 })
 
 } else {

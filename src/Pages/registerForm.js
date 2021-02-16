@@ -34,8 +34,6 @@ function RegisterForm() {
         console.log(campos)
     }
 
-    // let usernameValue = sessionStorage.getItem('myData')
-    // usernameValue = JSON.parse(usernameValue)
 
 
     function handleFormSubmit(event){

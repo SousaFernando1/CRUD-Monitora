@@ -47,7 +47,6 @@ function UpdateEmail() {
         
             let newEmail = response.data.body.users;
             sessionStorage.setItem('newEmail', JSON.stringify(newEmail.iEmail))
-            // console.log('newEmail', newEmail)
 
             history.push('/perfil')
         })

@@ -137,7 +137,6 @@ function Profile(){
                         <form onSubmit={handleFormSubmit}>
                         <button type="submit">excluir cadastro</button>
                         </form>
-                        {/* <Link className="button" to="/delete">Deletar conta</Link> */}
                     </footer>
         </div>
     </div>
