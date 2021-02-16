@@ -88,26 +88,46 @@ await db.query(
      })).catch((error) => {
      console.log(error)
  })
+})
 
+
+
+
+
+
+app.post('/updatename', async (req, res, next) => { 
+  console.log(req.body)
+ const { email, iFirstName, oldName } = req.body;
+
+await db.query(
+  "UPDATE users SET name = ($1) WHERE email = ($2);",
+  [iFirstName, email]
+).then(
+       res.status(201).send({
+           message: "Perfil alterado com sucesso!",
+           body: {
+             users: { email, iFirstName, oldName  } 
+           },
+           
+       })).catch((error) => {
+       console.log(error)
+   })
 
 })
+
+
+
+
+
+
+
+
 
 
 
 app.post('/updatecellphone', async (req, res, next) => { 
   console.log(req.body)
  const { oldCellphone, iWhatsapp, email } = req.body;
-
-// const emailUsuario = await db.query(
-//   "SELECT id_user FROM users WHERE email =($1);",
-//   [email]
-// )
-
-// // const idDoUsuario = idUsuario.rows[0].id_user
-
-// console.log(idUsuario.rows[0].email)
-
-
 
 await db.query(     
     "UPDATE users SET whatsapp = ($1) where email = ($2);",

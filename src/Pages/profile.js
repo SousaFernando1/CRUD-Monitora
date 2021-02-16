@@ -13,17 +13,25 @@ function Profile(){
     let emailValue = sessionStorage.getItem('newEmail')
     emailValue = JSON.parse(emailValue)
 
+    let newName = sessionStorage.getItem('newName')
+    newName = JSON.parse(newName)
+
+
 
     let profileValue = sessionStorage.getItem('myData')
     profileValue = JSON.parse(profileValue)
 
+
+    if(newName !== null){
+        console.log('Chegou no if profile', newName)
+        profileValue.iFirstName = newName
+    }
+
     if(emailValue !== null){
-        console.log('Chegou no if', emailValue)
         profileValue.iEmail = emailValue
     }
 
     if(newCellphone !== null){
-        console.log('Chegou no if', newCellphone)
         profileValue.iWhatsapp = newCellphone
     }
 
@@ -67,7 +75,7 @@ function Profile(){
                     <div className="profile-input-group">
                         <label htmlFor="iFirstName">Nome</label>
                         <input type="text" name="iFirstName" id="iFirstName" onChange={handleInputChange} value={ campos.firstname } />
-                        <Link className="profile-update-button" to="/updatefirstname">Alterar</Link>
+                        <Link className="profile-update-button" to="/updatename">Alterar</Link>
                     </div>
                     <div className="profile-input-group">
                         <label htmlFor="iLastName">Sobrenome</label>
@@ -111,4 +119,3 @@ function Profile(){
 
 
 export default Profile;
-

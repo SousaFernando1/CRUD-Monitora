@@ -9,6 +9,7 @@ function RegisterForm() {
    /*  console.trace(usernameValue) */
 
     sessionStorage.removeItem('newCellphone')
+    sessionStorage.removeItem('newName')
     const dadosD = sessionStorage.getItem('newCellphone')
     console.log('dadosD:', dadosD)
     
@@ -50,9 +51,6 @@ function RegisterForm() {
 
                 let usernameNew = response.data.body.users;
                 sessionStorage.setItem('myData', JSON.stringify(usernameNew))
-    /*             let newUsername = sessionStorage.getItem('myData')
-                newUsername = JSON.parse(newUsername)
-                console.log(newUsername)  */
                 history.push('/perfil')
             }
 
