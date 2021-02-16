@@ -8,6 +8,7 @@ import profile from './Pages/profile';
 import updateEmail from './Pages/updateEmail';
 import updateCellphone from './Pages/updateCellphone';
 import updateName from './Pages/updateName';
+import updateLastname from './Pages/updateLastname';
 
 
 
@@ -21,6 +22,7 @@ function Routes(){
             <Route component={updateEmail} path="/updateemail" />
             <Route component={updateCellphone} path="/updatecellphone" />
             <Route component={updateName} path="/updatename" />
+            <Route component={updateLastname} path="/updatelastname" />
         </BrowserRouter>
     )
 }

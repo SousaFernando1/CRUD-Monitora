@@ -16,11 +16,17 @@ function Profile(){
     let newName = sessionStorage.getItem('newName')
     newName = JSON.parse(newName)
 
-
+    let newLastname = sessionStorage.getItem('newLastname')
+    newLastname = JSON.parse(newLastname)
 
     let profileValue = sessionStorage.getItem('myData')
     profileValue = JSON.parse(profileValue)
 
+
+    if(newLastname !== null){
+        console.log('Chegou no if profile', newLastname)
+        profileValue.iLastName = newLastname
+    }
 
     if(newName !== null){
         console.log('Chegou no if profile', newName)

@@ -10,8 +10,7 @@ function RegisterForm() {
 
     sessionStorage.removeItem('newCellphone')
     sessionStorage.removeItem('newName')
-    const dadosD = sessionStorage.getItem('newCellphone')
-    console.log('dadosD:', dadosD)
+    sessionStorage.removeItem('newLastname')
     
 
     const history = useHistory()

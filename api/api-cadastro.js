@@ -117,6 +117,28 @@ await db.query(
 
 
 
+app.post('/updatelastname', async (req, res, next) => { 
+  console.log(req.body)
+ const { email, iLastName, oldLastname } = req.body;
+ console.log( email, iLastName, oldLastname )
+
+await db.query(
+  "UPDATE users SET lastname = ($1) WHERE email = ($2);",
+  [iLastName, email]
+).then(
+       res.status(201).send({
+           message: "Perfil alterado com sucesso!",
+           body: {
+             users: { email, iLastName, oldLastname }
+           },
+           
+       })).catch((error) => {
+       console.log(error)
+   })
+
+})
+
+
 
 
 
