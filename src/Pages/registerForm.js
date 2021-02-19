@@ -12,6 +12,7 @@ function RegisterForm() {
     sessionStorage.removeItem('newName')
     sessionStorage.removeItem('newLastname')
     sessionStorage.removeItem('newBiography')
+
     
 
     const history = useHistory()

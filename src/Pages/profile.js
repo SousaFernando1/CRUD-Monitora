@@ -14,6 +14,7 @@ function Profile(){
 
     let emailValue = sessionStorage.getItem('newEmail')
     emailValue = JSON.parse(emailValue)
+    console.log("profile email value: ", emailValue)
 
     let newName = sessionStorage.getItem('newName')
     newName = JSON.parse(newName)
@@ -23,7 +24,6 @@ function Profile(){
 
     let newBiography = sessionStorage.getItem('newBiography')
     newBiography = JSON.parse(newBiography)
-    console.log('newBiography AQUI:', newBiography)
 
 
     let profileValue = sessionStorage.getItem('myData')
@@ -48,13 +48,14 @@ function Profile(){
 
     if(emailValue !== null){
         profileValue.iEmail = emailValue
+        console.log('AQUIIIIIII:',profileValue.iEmail)
     }
 
     if(newCellphone !== null){
         profileValue.iWhatsapp = newCellphone
     }
 
-    
+    console.log(profileValue.iFirstName)
 
     const [campos, setCampos] = useState({
         firstname: profileValue.iFirstName,

@@ -13,6 +13,7 @@ function UpdateLastname() {
 
     let profileValue = sessionStorage.getItem('myData')
     profileValue = JSON.parse(profileValue)
+    
 
 
     let newLastname = sessionStorage.getItem('newLastname')
@@ -21,6 +22,15 @@ function UpdateLastname() {
     if(newLastname !== null){
         console.log('Chegou no if', newLastname)
         profileValue.iLastName = newLastname
+    }
+
+    let emailValue = sessionStorage.getItem('newEmail')
+    emailValue = JSON.parse(emailValue)
+
+    
+    if(emailValue !== null){
+        profileValue.iEmail = emailValue
+        console.log('AQUIIIIIII:',profileValue.iEmail)
     }
 
     const [campos, setCampos] = useState({

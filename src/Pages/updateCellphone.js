@@ -18,6 +18,15 @@ function UpdateEmail() {
     let newCellphone = sessionStorage.getItem('newCellphone')
     newCellphone = JSON.parse(newCellphone)
 
+    let emailValue = sessionStorage.getItem('newEmail')
+    emailValue = JSON.parse(emailValue)
+
+    
+    if(emailValue !== null){
+        profileValue.iEmail = emailValue
+        console.log('AQUIIIIIII:',profileValue.iEmail)
+    }
+
     if(newCellphone !== null){
         console.log('Chegou no if', newCellphone)
         profileValue.iWhatsapp = newCellphone

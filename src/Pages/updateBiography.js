@@ -18,6 +18,15 @@ function UpdateBiography() {
     let newBiography = sessionStorage.getItem('newBiography')
     newBiography = JSON.parse(newBiography)
 
+    let emailValue = sessionStorage.getItem('newEmail')
+    emailValue = JSON.parse(emailValue)
+
+    
+    if(emailValue !== null){
+        profileValue.iEmail = emailValue
+        console.log('AQUIIIIIII:',profileValue.iEmail)
+    }
+
     if(newBiography !== null){
         console.log('Chegou no if', newBiography)
         profileValue.iBiography = newBiography

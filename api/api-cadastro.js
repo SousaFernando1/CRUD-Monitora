@@ -55,6 +55,7 @@ const idUsuario = await db.query(
 )
 
 const idDoUsuario = idUsuario.rows[0].id_user
+console.log(idDoUsuario)
 
 await db.query(     
     "UPDATE users SET email = ($1) where id_user = ($2);",

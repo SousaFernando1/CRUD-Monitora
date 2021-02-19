@@ -9,19 +9,36 @@ import { useHistory } from "react-router-dom";
 function UpdateName() {
    
 
+
+
     const history = useHistory()
 
     let profileValue = sessionStorage.getItem('myData')
     profileValue = JSON.parse(profileValue)
 
+    console.log('Aqui:',profileValue.iEmail)
+
+
 
     let newName = sessionStorage.getItem('newName')
     newName = JSON.parse(newName)
 
+
+    let emailValue = sessionStorage.getItem('newEmail')
+    emailValue = JSON.parse(emailValue)
+
+    
+    if(emailValue !== null){
+        profileValue.iEmail = emailValue
+        console.log('AQUIIIIIII:',profileValue.iEmail)
+    }
+
     if(newName !== null){
         console.log('Chegou no if', newName)
         profileValue.iFirstName = newName
-    }
+
+    console.log('Aqui:',profileValue.iEmail)
+}
 
     const [campos, setCampos] = useState({
         email: profileValue.iEmail,
