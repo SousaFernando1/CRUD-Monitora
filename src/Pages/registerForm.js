@@ -36,6 +36,43 @@ function RegisterForm() {
     }
 
 
+    function handleInputFocus(event){
+        const input = event.target;
+        const label = input.closest(".input-group").querySelector("label");
+        label.classList.add("register-focus");
+
+    }
+
+    function handleInputBlur(event)
+    {
+        const input = event.target;
+        if(input.value.length > 0)
+        {
+            return;
+        }
+        const label = input.closest(".input-group").querySelector("label");
+        label.classList.remove("register-focus");
+    }
+
+    function handleSpanClick(event)
+    {
+        const showPassword = event.target;
+        const input = showPassword.closest(".input-group").querySelector("input");
+    
+        if(showPassword.classList.contains("register-eye"))
+        {
+            input.type = "password";
+            showPassword.classList.remove("register-eye");
+            showPassword.classList.add("register-eye-closed");
+        } else {
+            input.type = "text";
+            showPassword.classList.add("register-eye");
+            showPassword.classList.remove("register-eye-closed");
+        }
+    }
+
+
+
 
     function handleFormSubmit(event){
         event.preventDefault();
@@ -61,6 +98,8 @@ function RegisterForm() {
 
 
 
+
+
     return (
     <div id="aplicativo">
     <div className="register-box">
@@ -74,20 +113,20 @@ function RegisterForm() {
             <form className="form" onSubmit={handleFormSubmit}>
                 <div className="input-group">
                     <label htmlFor="iFirstName">Nome</label>
-                    <input type="text" name="iFirstName" id="iFirstName" onChange={handleInputChange}/>
+                    <input type="text" name="iFirstName" id="iFirstName" onChange={handleInputChange} onFocus={handleInputFocus} onBlur={handleInputBlur}/>
                 </div>
                 <div className="input-group">
                     <label htmlFor="iLastName">Sobrenome</label>
-                    <input type="text" name="iLastName" id="iLastName" onChange={handleInputChange}/>
+                    <input type="text" name="iLastName" id="iLastName" onChange={handleInputChange} onFocus={handleInputFocus} onBlur={handleInputBlur}/>
                 </div>
                 <div className="input-group">
                     <label htmlFor="iEmail">E-mail</label>
-                    <input type="email" name="iEmail" id="iEmail" onChange={handleInputChange}/>
+                    <input type="email" name="iEmail" id="iEmail" onChange={handleInputChange} onFocus={handleInputFocus} onBlur={handleInputBlur}/>
                 </div>
                 <div className="input-group">
                     <label htmlFor="iPassword">Senha</label>
-                    <input type="text" name="iPassword" id="iPassword" onChange={handleInputChange}/>
-                    <span className="showPassword eye-closed"></span>
+                    <input type="text" name="iPassword" id="iPassword" onChange={handleInputChange} onFocus={handleInputFocus} onBlur={handleInputBlur}/>
+                    <span onClick={handleSpanClick} className="showPassword register-eye-closed"></span>
                 </div>
                 <input className="checkbox" id="check" type="checkbox"/>
                 <label htmlFor="check" className="checkbox-label">Lembrar-me</label>

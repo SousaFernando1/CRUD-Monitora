@@ -31,6 +31,15 @@
     display: flex;
 }
 
+button {
+    cursor: pointer; 
+}
+
+#aplicativo .checkbox:hover, #aplicativo .checkbox-label:hover{
+    cursor: pointer; 
+}
+
+
 .arrow-back{
     position: absolute;
     top: 16px;
@@ -165,6 +174,12 @@
     top: 1rem !important;
     font-size: 1.2rem !important;
 }
+
+.register-focus{
+    top: 8px !important ;
+    font-size: 12px !important;
+}
+
 .monitora-box{
     width: 60%;
     height: 100vh;
@@ -250,7 +265,7 @@
     position: relative;
 }
 
-.eye{
+.register-eye{
     background-image: url("../img/olhoaberto.svg"); 
     background-repeat: no-repeat;
     background-size: 100%;
@@ -258,11 +273,11 @@
     width: 24px;
     position: absolute;
     right: 15px;
-    top: 20px;
+    top: 25px;
 
 }
 
-.eye-closed{
+.register-eye-closed{
     position: absolute;
     background-image: url("../img/olho.svg");
     background-repeat: no-repeat;
@@ -270,7 +285,7 @@
     height: 24px;
     width: 24px;
     right: 15px;
-    top: 20px;
+    top: 25px;
 }
 
 

@@ -23,6 +23,28 @@ function LoginForm() {
         console.log(campos)
     }
 
+
+    function handleInputFocus(event){
+        const input = event.target;
+        const label = input.closest(".input-group").querySelector("label");
+        label.classList.add("login-focus");
+
+    }
+
+    function handleInputBlur(event)
+    {
+        const input = event.target;
+        if(input.value.length > 0)
+        {
+            return;
+        }
+        const label = input.closest(".input-group").querySelector("label");
+        label.classList.remove("login-focus");
+    }
+
+
+
+
     function handleFormSubmit(event){
         event.preventDefault();
         axios.post('http://localhost:3031/login', campos).then(response => {
@@ -42,6 +64,22 @@ function LoginForm() {
 }
 
 
+function handleSpanClick(event)
+{
+    const showPassword = event.target;
+    const input = showPassword.closest(".input-group").querySelector("input");
+
+    if(showPassword.classList.contains("login-eye"))
+    {
+        input.type = "password";
+        showPassword.classList.remove("login-eye");
+        showPassword.classList.add("login-eye-closed");
+    } else {
+        input.type = "text";
+        showPassword.classList.add("login-eye");
+        showPassword.classList.remove("login-eye-closed");
+    }
+}
 
     return (
         <div className="container">
@@ -57,16 +95,16 @@ function LoginForm() {
                     <form className="login" onSubmit={handleFormSubmit}>
                         <div className="input-group">
                             <label htmlFor="iemail">E-mail</label>
-                            <input type="email" name="iEmail" id="iemail" onChange={handleInputChange} />
+                            <input type="email" name="iEmail" id="iemail" onChange={handleInputChange} onFocus={handleInputFocus} onBlur={handleInputBlur} />
                         </div>
                         <div className="input-group">
                             <label htmlFor="ipassword">Senha</label>
-                            <input type="password" name="iPassword" id="ipassword" onChange={handleInputChange} />
-                            <span className="show-password eye-closed"></span>
+                            <input type="password" name="iPassword" id="ipassword" onChange={handleInputChange} onFocus={handleInputFocus} onBlur={handleInputBlur} />
+                            <span className="show-password eye-closed" onClick={handleSpanClick}></span>
                         </div>
                         <div className="options">
                             <div className="input-checkbox">
-                                <input type="checkbox" name="remember" id="checkbox" checked />
+                                <input type="checkbox" name="remember" id="checkbox" />
                                 <label htmlFor="checkbox" className="checkbox">Lembrar-me</label>
                             </div>
                             <a href="recuperarsenha" className="forgot">Esqueci minha senha</a>

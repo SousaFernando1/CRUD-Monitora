@@ -24,6 +24,14 @@ body{
     background-color: var(--primary-color);
 }
 
+button {
+    cursor: pointer; 
+}
+
+.input-checkbox:hover, .checkbox:hover {
+    cursor: pointer; 
+}
+
 .content{
     display:flex;
     border-radius: 15px;
@@ -88,7 +96,8 @@ body{
     background-color: #F6F0F0;
 }
 .second-title{
-    margin-bottom: 20px;
+    font-size: 3.5rem;
+    margin-bottom: 30px;
     padding-left: 35px;
     align-self: flex-start;
     
@@ -145,7 +154,7 @@ body{
     top: 35px;
 }
 
-.eye{
+.login-eye{
     background-image: url("../img/olhoaberto.svg");
     background-repeat: no-repeat;
     background-size: 100%;
@@ -154,7 +163,7 @@ body{
 
 }
 
-.eye-closed{
+.login-eye-closed{
     background-image: url("../img/olho.svg");
     background-repeat: no-repeat;
     background-size: 100%;
@@ -163,8 +172,9 @@ body{
 
 }
 
-.focus{
-    top: 20px !important ;
+.login-focus{
+    top: 15px !important ;
+    left: 20px !important;
     font-size: 12px !important;
 }
 
